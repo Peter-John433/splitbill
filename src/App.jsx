@@ -1,7 +1,12 @@
+import SplitBillsComp from "./components/split-bills/SplitBillsComp";
+import Header from "./components/ui/Header";
 export default function App() {
   return (
     <div>
-      <h1>hello world</h1>
+      <Header />
+      <div className="container">
+        <SplitBillsComp />
+      </div>
     </div>
   );
 }
