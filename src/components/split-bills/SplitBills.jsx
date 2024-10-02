@@ -10,13 +10,15 @@ export default function SplitBills({ name, balance, image }) {
         <span>
           <span>{name}</span>
           <p className="mt-2">
-            <span className={balance < 0 && "text-red-700"}>
+            <span className={balance < 0 ? "text-red-700" : undefined}>
               {balance < 0 && `you owe ${name}  $${Math.abs(balance)}`}
             </span>
-            <span className={balance > 0 && "text-green-700"}>
+            <span className={balance > 0 ? "text-green-700" : undefined}>
               {balance > 0 && `${name} owes you ${balance}`}
             </span>
-            <span>{balance === 0 && `you and ${name} are even`}</span>
+            <span>
+              {balance === 0 ? `you and ${name} are even` : undefined}
+            </span>
           </p>
         </span>
         <Buttons buttonStyle={buttonStyle}>Select</Buttons>
