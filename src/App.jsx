@@ -48,11 +48,21 @@ export default function App() {
     // setSelectSplitBillsForm(friend);
 
     //if the current selectedfriend id is exact equal to the new friend id then set it to null else show friend details in the form
-    setSelectSplitBillsForm((selectedFriend) =>
-      selectedFriend?.id === friend.id ? null : friend
+    setSelectSplitBillsForm((cur) => (cur?.id === friend.id ? null : friend));
+    setShowForm(false);
+  }
+
+  function handleSplitBillsFormPaid(value) {
+    // console.log(value);
+    setAddNew((friends) =>
+      friends.map((friend) =>
+        friend.id === selectSplitBillsForm.id
+          ? { ...friend, balance: friend.balance + value }
+          : friend
+      )
     );
 
-    setShowForm(false);
+    setSelectSplitBillsForm(null);
   }
 
   return (
@@ -78,7 +88,10 @@ export default function App() {
         </div>
 
         {selectSplitBillsForm && (
-          <SplitBillsForm selectSplitBillsForm={selectSplitBillsForm} />
+          <SplitBillsForm
+            selectSplitBillsForm={selectSplitBillsForm}
+            onSplit={handleSplitBillsFormPaid}
+          />
         )}
       </div>
     </div>
