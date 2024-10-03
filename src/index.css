@@ -18,12 +18,12 @@ body {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 @media screen and (max-width: 540px) {
   .container {
-    width: 80%;
+    width: 100%;
   }
 }
 @media screen and (max-width: 768px) {
